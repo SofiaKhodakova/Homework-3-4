@@ -35,9 +35,7 @@ industries = df[df['Экономическая деятельность'].isin([
 ])]
 
 # Отделяем данные по инфляции
-inflation = df[df['Экономическая деятельность'] == 'Инфляция'].drop(
-    'Экономическая деятельность', axis=1
-).T
+inflation = df[df['Экономическая деятельность'] == 'Инфляция'].drop('Экономическая деятельность', axis=1).T
 inflation.columns = ['Инфляция']
 
 salaries = industries.drop('Экономическая деятельность', axis=1).T
@@ -71,12 +69,9 @@ plt.legend(fontsize=10, bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.xticks(rotation=45)
 plt.tight_layout()
-
-# Сохранение графика
-plt.savefig('salary_dynamics.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-# Дополнительный анализ: темпы роста
+#Темпы роста
 growth = (real_salaries.pct_change() * 100).dropna()
 
 plt.figure(figsize=(14, 6))

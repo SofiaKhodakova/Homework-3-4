@@ -8,6 +8,7 @@ Original file is located at
 """
 
 import pandas as pd
+RUN pip install matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
